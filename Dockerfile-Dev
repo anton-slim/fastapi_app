@@ -1,0 +1,19 @@
+FROM python:3.12
+
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app/
+
+ENV PATH="/app/.venv/bin:$PATH"
+
+ENV PYTHONPATH=/app
+
+RUN python3 -m venv ./.venv
+
+COPY ./requirements.txt /app
+
+RUN pip3 install -r /app/requirements.txt
+
+VOLUME /app/app
+
+CMD ["fastapi", "run", "app/main.py"]

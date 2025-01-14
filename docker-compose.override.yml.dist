@@ -1,0 +1,14 @@
+services:
+
+  api:
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./app:/app/app
+#    command: [
+#      'fastapi',
+#      'run',
+#      '--reload',
+#      'app/main.py',
+#    ]
+#    restart: unless-stopped
