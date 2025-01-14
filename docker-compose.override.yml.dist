@@ -5,10 +5,13 @@ services:
       - '8000:8000'
     volumes:
       - ./app:/app/app
-#    command: [
-#      'fastapi',
-#      'run',
-#      '--reload',
-#      'app/main.py',
-#    ]
-#    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile-Dev
+    command: [
+      'fastapi',
+      'run',
+      '--reload',
+      'app/main.py',
+    ]
+    restart: unless-stopped
